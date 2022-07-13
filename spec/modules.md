@@ -52,9 +52,13 @@ An *empty CSS tree* contains no statements.
 ### Configuration
 
 A *configuration* is a map from [variable](variables.md) names to SassScript
-values. An *empty configuration* contains no entries.
+values. An *empty configuration* contains no entries. Each *configuration* has
+a uniquely-identifying opaque ID.
 
-[source file]: syntax.md#source-file
+Each *configuration* has a uniquely-identifying opaque ID, sharing the same
+instance across all [source files][] in a [module](#module).
+
+[source files]: syntax.md#source-file
 
 ### Module
 
@@ -98,6 +102,8 @@ A *module* is a collection of various properties:
 
   > Note that [built-in modules](#built-in-module) *do not* have source files
   > associated with them.
+
+  [source file]: syntax.md#source-file
 
 * An absolute URL, known as the module's *canonical URL*. If the module has a
   source file, this must be the same as the source file's canonical URL.
