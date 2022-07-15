@@ -38,7 +38,7 @@ Two members are considered identical if they have the same name, type, source
 location, and were defined in or forwarded from the same original module.
 
 > Each member type has its own namespace in Sass, so for example the mixin
-> `name` doesn't conflict with the function `name` or the variable `$name`. 
+> `name` doesn't conflict with the function `name` or the variable `$name`.
 
 ### CSS Tree
 
@@ -54,22 +54,17 @@ An *empty CSS tree* contains no statements.
 A *configuration* is a map from [variable](variables.md) names to SassScript
 values and an opaque ID. An *empty configuration* contains no entries.
 
-Each *configuration* has a uniquely-identifying opaque ID, sharing the same
-instance across all [source files][] in a [module](#module).
-
-[source files]: syntax.md#source-file
-
 ### Module
 
 A *module* is a collection of various properties:
 
 * A set of [members](#member) that contains at most one member of any given type
   and name.
-  
+
   > For example, a module may not have two variables named `$name`, although it
   > may contain a function and a mixin with the same name or two functions with
   > different names.
-  
+
   > The names (and mixin and function signatures) of a module's members are
   > static, and can be determined without executing its associated source file.
   > This means that any possible module for a given source file has the same
