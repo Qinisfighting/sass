@@ -46,6 +46,9 @@ To execute a `@forward` rule `rule`:
 
   * Let `rule-config` be an empty [configuration][].
 
+    * The `rule-config` opaque ID will be generated deterministically for the
+      location it was declared at.
+
   * For each variable `variable` in [the current configuration][]:
 
     * If `variable`'s name begins with `prefix`:
@@ -68,7 +71,7 @@ To execute a `@forward` rule `rule`:
 * For every member `member` in `forwarded`:
 
   * Let `name` be `member`'s name.
-  
+
   * If `rule` has an `AsClause` `as`, prepend `as`'s identifier to `name` (after
     the `$` if `member` is a variable).
 

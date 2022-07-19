@@ -54,6 +54,8 @@ An *empty CSS tree* contains no statements.
 A *configuration* is a map from [variable](variables.md) names to SassScript
 values and an opaque ID. An *empty configuration* contains no entries.
 
+A new *configuration* ID is unique unless otherwise specified.
+
 ### Module
 
 A *module* is a collection of various properties:
@@ -262,7 +264,7 @@ This algorithm takes a string `argument` and [configuration](#configuration)
 
   [executed]: spec.md#executing-a-file
 
-  * If `config` is not empty, throw an error.
+  * If `config` has a different ID than before and is not empty, throw an error.
 
   * Otherwise, return the module that execution produced.
 
@@ -271,7 +273,11 @@ This algorithm takes a string `argument` and [configuration](#configuration)
   > This disallows circular `@use`s, which ensures that modules can't be used
   > until they're fully initialized.
 
-* Otherwise, return the result of [executing][] `file` with `config` and a new
+* Otherwise
+
+  * Keep track of which `config` was used for the `file` by its opaque ID.
+
+  * Return the result of [executing][] `file` with `config` and a new
   [import context](#import-context).
 
   > For simplicity, the spec creates an import context for every module.

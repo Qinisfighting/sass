@@ -47,9 +47,6 @@ innermost active invocation of [Executing a File](#executing-a-file).
 
 [configuration]: modules.md#configuration
 
- > Each new *configuration* has a unique ID by default. Create a new
- > configuration with the same ID to share identities.
-
 ### Current Import Context
 
 The *current import context* is the [import context][] that was passed to the

@@ -116,6 +116,9 @@ To execute a `@use` rule `rule`:
 
 * Let `rule-config` be the empty configuration.
 
+  * The `rule-config` opaque ID will be generated deterministically for the
+    location it was declared at.
+
 * If `rule` has a `WithClause`:
 
   * For each `KeywordArgument` `argument` in this clause:
@@ -138,4 +141,3 @@ To execute a `@use` rule `rule`:
   * If `variable` wasn't declared with a `!default` flag, throw an error.
 
 * Set [`rule`'s module](#a-use-rules-module) to `module`.
-
