@@ -44,12 +44,10 @@ To execute a `@forward` rule `rule`:
 
 * If `rule` has an `AsClause` with identifier `prefix`:
 
-  * Let `rule-config` be an empty [configuration][].
+  * Let `rule-config` be an empty [configuration][] inheriting the opaque ID
+    from [the current configuration][].
 
-    * The `rule-config` opaque ID will be generated deterministically for the
-      location it was declared at.
-
-  * For each variable `variable` in [the current configuration][]:
+  * For each variable `variable` in the current configuration:
 
     * If `variable`'s name begins with `prefix`:
 
@@ -62,6 +60,9 @@ To execute a `@forward` rule `rule`:
   [the current configuration]: ../spec.md#current-configuration
 
 * Otherwise, let `rule-config` be the current configuration.
+
+  > It is implied that due to being the same configuration it will keep the same
+  > opaque ID.
 
 * Let `forwarded` be the result of [loading the module][] with `rule`'s URL
   string and `rule-config`.

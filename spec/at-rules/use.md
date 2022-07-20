@@ -116,9 +116,6 @@ To execute a `@use` rule `rule`:
 
 * Let `rule-config` be the empty configuration.
 
-  * The `rule-config` opaque ID will be generated deterministically for the
-    location it was declared at.
-
 * If `rule` has a `WithClause`:
 
   * For each `KeywordArgument` `argument` in this clause:
